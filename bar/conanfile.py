@@ -41,7 +41,7 @@ class Recipe(ConanFile):
         # self.requires("openvr/1.16.8", transitive_headers=True, transitive_libs=True)
 
     def package_info(self):
-        pass
+        self.cpp_info.libs = ["bar"]
         # self.cpp_info.components["core"].libs = ["jorl_core"]
         # self.cpp_info.components["exts"].libs = ["jorl_exts"]
         # self.cpp_info.components["exts"].requires = ["core"]

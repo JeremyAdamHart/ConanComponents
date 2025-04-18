@@ -1,13 +1,12 @@
-#include <waldo.hpp>
-
 #include <foo.hpp>
 #include <quxa.hpp>
 #include <quxb.hpp>
 #include <iostream>
 
-void waldo(){
+int main(){
     foo();
     quxa();
     quxb();
-    std::cout << "waldo" << std::endl;
+    
+    return 0;
 }
