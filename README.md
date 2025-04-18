@@ -7,3 +7,5 @@ Minimal project using conan with multiple components and transitive headers.
       \    /
        foo
 ```
+
+`test` only links to `bara` and `barb` but gets access to `foo` headers
