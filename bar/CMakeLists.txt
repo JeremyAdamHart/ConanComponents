@@ -16,7 +16,7 @@ cmake_minimum_required(VERSION 3.20)
 
 # barA --------------------
 add_library(bara bara/source/bara.cpp)
-add_library(bar::a ALIAS bara)
+add_library(bar::bara ALIAS bara)
 
 target_sources(bara PUBLIC FILE_SET bara_headers TYPE HEADERS BASE_DIRS ./bara/include/ FILES ./bara/include/bara.hpp)
 
@@ -28,7 +28,7 @@ target_link_libraries(bara PUBLIC foo::foo)
 
 # barA --------------------
 add_library(barb barb/source/barb.cpp)
-add_library(bar::b ALIAS barb)
+add_library(bar::barb ALIAS barb)
 
 target_sources(barb PUBLIC FILE_SET bara_headers TYPE HEADERS BASE_DIRS ./barb/include/ FILES ./barb/include/barb.hpp)
 
