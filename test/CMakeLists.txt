@@ -15,6 +15,6 @@ cmake_minimum_required(VERSION 3.20)
 add_executable(test main.cpp)
 
 # Packages
-find_package(qux REQUIRED)
+find_package(bar REQUIRED)
 # find_package(foo REQUIRED)
-target_link_libraries(test PUBLIC qux::quxa qux::quxb) # foo::foo )
+target_link_libraries(test PUBLIC bar::bara bar::barb) # foo::foo )

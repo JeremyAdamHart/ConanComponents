@@ -1,12 +1,12 @@
 #include <foo.hpp>
-#include <quxa.hpp>
-#include <quxb.hpp>
+#include <bara.hpp>
+#include <barb.hpp>
 #include <iostream>
 
 int main(){
     foo();
-    quxa();
-    quxb();
+    bara();
+    barb();
     
     return 0;
 }

@@ -14,31 +14,32 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "") # works
 
 cmake_minimum_required(VERSION 3.20)
 
-add_library(bar source/bar.cpp
-)
-add_library(bar::bar ALIAS bar)
+# barA --------------------
+add_library(bara bara/source/bara.cpp)
+add_library(bar::a ALIAS bara)
 
-target_sources(bar PUBLIC FILE_SET bar_headers TYPE HEADERS BASE_DIRS ./include/ FILES ./include/bar.hpp)
+target_sources(bara PUBLIC FILE_SET bara_headers TYPE HEADERS BASE_DIRS ./bara/include/ FILES ./bara/include/bara.hpp)
 
-target_include_directories(bar PUBLIC ./include/)
-
+target_include_directories(bara PUBLIC ./bara/include/)
 
 # Packages
 find_package(foo REQUIRED)
-# find_package(glfw3 REQUIRED)
-# find_package(glad REQUIRED)
-# find_package(glm REQUIRED)
+target_link_libraries(bara PUBLIC foo::foo)
 
-target_link_libraries(bar PUBLIC foo::foo)
-# target_link_libraries(jorl_core PUBLIC glfw)
-# target_link_libraries(jorl_core PUBLIC glm::glm)
-# target_link_libraries(jorl_core PUBLIC glad::glad)
+# barA --------------------
+add_library(barb barb/source/barb.cpp)
+add_library(bar::b ALIAS barb)
 
-# install(TARGETS jorl_core FILE_SET jorl_core_headers)
+target_sources(barb PUBLIC FILE_SET bara_headers TYPE HEADERS BASE_DIRS ./barb/include/ FILES ./barb/include/barb.hpp)
 
-# install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION "")
+target_include_directories(barb PUBLIC ./barb/include/)
 
-install(TARGETS bar FILE_SET bar_headers)
+# Packages
+find_package(foo REQUIRED)
+target_link_libraries(barb PUBLIC foo::foo)
+
+# -------------------------
+install(TARGETS bara barb FILE_SET bara_headers FILE_SET barb_headers)
 
 # add_subdirectory(core)
 # add_subdirectory(exts)

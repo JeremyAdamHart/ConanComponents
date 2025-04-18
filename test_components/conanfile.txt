@@ -1,8 +1,0 @@
-[requires]
-qux/0.0.1
-
-[generators]
-CMakeDeps
-CMakeToolchain
-[layout]
-cmake_layout
